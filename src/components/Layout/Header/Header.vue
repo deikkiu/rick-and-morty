@@ -1,7 +1,3 @@
-<script setup>
-import Menu from '@/components/Menu.vue';
-</script>
-
 <template>
 	<header class="bg-black">
 		<div class="container">
@@ -20,3 +16,13 @@ import Menu from '@/components/Menu.vue';
 		</div>
 	</header>
 </template>
+
+<script>
+import Menu from '@/components/Menu.vue';
+
+export default {
+	components: {
+		Menu,
+	},
+};
+</script>

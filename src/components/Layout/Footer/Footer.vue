@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
 	<footer class="mt-10 pb-6">
 		<div class="container">
@@ -32,3 +30,5 @@
 		</div>
 	</footer>
 </template>
+
+<script setup></script>

@@ -35,3 +35,17 @@
 		src: url(/fonts/OpenSans-Regular.ttf) format('truetype');
 	}
 }
+
+@layer components {
+	.card {
+		height: 100%;
+		padding: 16px;
+
+		background-color: theme('colors.cardBg');
+		border-radius: 16px;
+
+		cursor: pointer;
+
+		transition: background-color 0.3s linear;
+	}
+}

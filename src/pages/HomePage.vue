@@ -1,24 +1,3 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import { getCharactersByPage } from '@/api/character/character';
-
-import { Header, Footer, Menu, Characters } from '@/components/index';
-import { Title } from '@/shared/ui/index';
-
-const list = ref([]);
-
-async function fetchData() {
-	try {
-		const data = await getCharactersByPage(1);
-		list.value = data.results;
-	} catch (e) {
-		throw new Error(e);
-	}
-}
-
-onMounted(fetchData);
-</script>
-
 <template>
 	<Header />
 
@@ -27,8 +6,12 @@ onMounted(fetchData);
 			<div>
 				<Title text="Characters" />
 
-				<div class="mt-6">
-					<Characters :list="list" />
+				<div class="grid grid-cols-5 gap-4 mt-6">
+					<CharacterCard
+						v-for="item in list"
+						:key="item['name']"
+						:item="item"
+					/>
 				</div>
 			</div>
 		</div>
@@ -36,3 +19,44 @@ onMounted(fetchData);
 
 	<Footer />
 </template>
+
+<script>
+import axios from 'axios';
+
+import { Header, Footer, Menu, CharacterCard } from '@/components/index';
+import { Title } from '@/shared/ui/index';
+
+export default {
+	data() {
+		return {
+			list: [],
+			pages: null,
+			nextPage: null,
+			prevPage: null,
+		};
+	},
+	components: {
+		Header,
+		Footer,
+		Menu,
+		CharacterCard,
+		Title,
+	},
+	created() {
+		this.getCharactersByPage('https://rickandmortyapi.com/api/character');
+	},
+	methods: {
+		async getCharactersByPage(url) {
+			try {
+				const { data } = await axios.get(url);
+				this.list = data.results;
+				this.pages = data.pages;
+				this.nextPage = data.next;
+				this.prevPage = data.prev;
+			} catch (e) {
+				throw new Error(e);
+			}
+		},
+	},
+};
+</script>

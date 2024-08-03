@@ -1,7 +1,3 @@
-<script setup>
-import Link from '@/shared/ui/Link.vue';
-</script>
-
 <template>
 	<nav class="flex flex-row gap-x-8">
 		<Link name="Home" url="/" />
@@ -9,3 +5,16 @@ import Link from '@/shared/ui/Link.vue';
 		<Link name="Locations" url="/locations" />
 	</nav>
 </template>
+
+<script>
+import Link from '@/shared/ui/Link.vue';
+
+export default {
+	props: {
+		name: String,
+	},
+	components: {
+		Link,
+	},
+};
+</script>
