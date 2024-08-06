@@ -2,9 +2,7 @@ export const getIdFromUrl = (urls) => {
 	const ids = [];
 
 	if (typeof urls === 'string') {
-		ids.push(urls.slice(urls.lastIndexOf('/')));
-
-		return ids;
+		return urls.slice(urls.lastIndexOf('/') + 1);
 	}
 
 	if (typeof urls === 'object' && Array.isArray(urls)) {
@@ -13,5 +11,5 @@ export const getIdFromUrl = (urls) => {
 		}
 	}
 
-	return ids;
+	return ids.join(',');
 };

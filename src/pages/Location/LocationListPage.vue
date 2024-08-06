@@ -7,7 +7,7 @@
 				<Title text="Locations" />
 
 				<div class="grid grid-cols-5 gap-4 mt-6">
-					{{ list }}
+					<LocationCard v-for="item in list" :key="item['name']" :item="item" />
 				</div>
 			</div>
 		</div>
@@ -19,7 +19,7 @@
 <script>
 import axios from 'axios';
 
-import { Header, Footer, Menu } from '@/components/index';
+import { Header, Footer, Menu, LocationCard } from '@/components/index';
 import { Title } from '@/shared/ui/index';
 
 export default {
@@ -35,6 +35,7 @@ export default {
 		Header,
 		Footer,
 		Menu,
+		LocationCard,
 		Title,
 	},
 	created() {
