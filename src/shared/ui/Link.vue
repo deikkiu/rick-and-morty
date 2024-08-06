@@ -1,7 +1,3 @@
-<script setup>
-defineProps(['name', 'url']);
-</script>
-
 <template>
 	<router-link :to="url" class="flex items-center">
 		<span
@@ -11,3 +7,9 @@ defineProps(['name', 'url']);
 		</span>
 	</router-link>
 </template>
+
+<script>
+export default {
+	props: ['name', 'url'],
+};
+</script>
