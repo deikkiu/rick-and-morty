@@ -3,7 +3,7 @@
 
   <main class="mt-10 mmm:mt-6">
     <div class="container">
-      <div>
+      <div v-if="item">
         <img
           class="w-16 h-16"
           src="@/assets/icons/episode-w.svg"
@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div class="mt-10">
+      <div class="mt-10" v-if="characters && characters.length">
         <Title text="Characters" />
 
         <div
@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       item: null,
-      characters: null,
+      characters: [],
     };
   },
   props: ['id'],
@@ -69,21 +69,24 @@ export default {
   methods: {
     async getEpisodeById(id) {
       try {
-        const data = await axios.get(
+        const response = await axios.get(
           `https://rickandmortyapi.com/api/episode/${id}`
         );
-        this.item = data.data;
+        this.item = response.data;
 
         // characters
-        const list = await axios.get(
-          `https://rickandmortyapi.com/api/character/${getIdFromUrl(this.item.characters)}`
+        const charactersIds = this.item.characters
+          .map((url) => getIdFromUrl(url))
+          .join(',');
+        const characterResponse = await axios.get(
+          `https://rickandmortyapi.com/api/character/${charactersIds}`
         );
 
-        Array.isArray(list['data'])
-          ? (this.characters = list['data'])
-          : this.characters.push(list['data']);
+        this.characters = Array.isArray(characterResponse.data)
+          ? characterResponse.data
+          : [characterResponse.data];
       } catch (e) {
-        throw new Error(e);
+        console.error(e);
       }
     },
   },

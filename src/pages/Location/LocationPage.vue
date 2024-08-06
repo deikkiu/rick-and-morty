@@ -6,11 +6,13 @@
       <div>
         <img class="w-16 h-16" src="@/assets/icons/planet.svg" alt="Episode" />
 
-        <h1 class="mt-4 text-4xl font-bold text-white">{{ item.name }}</h1>
+        <h1 v-if="item" class="mt-4 text-4xl font-bold text-white">
+          {{ item.name }}
+        </h1>
 
         <div class="mt-4 flex flex-row items-center gap-x-2">
           <img class="w-6 h-6" src="@/assets/icons/planet.svg" alt="Type" />
-          <p class="text-base text-white">{{ item.type }}</p>
+          <p v-if="item" class="text-base text-white">{{ item.type }}</p>
         </div>
 
         <div class="mt-2 flex flex-row items-center gap-x-2">
@@ -19,11 +21,13 @@
             src="@/assets/icons/dimension.svg"
             alt="dimension"
           />
-          <p class="text-base text-white">{{ item.dimension }}</p>
+          <p v-if="item" class="text-base text-white">
+            {{ item.dimension }}
+          </p>
         </div>
       </div>
 
-      <div class="mt-10">
+      <div class="mt-10" v-if="residents && residents.length">
         <Title text="Residents" />
 
         <div
@@ -53,7 +57,7 @@ export default {
   data() {
     return {
       item: null,
-      residents: null,
+      residents: [],
     };
   },
   props: ['id'],
@@ -69,21 +73,24 @@ export default {
   methods: {
     async getLocationById(id) {
       try {
-        const data = await axios.get(
+        const response = await axios.get(
           `https://rickandmortyapi.com/api/location/${id}`
         );
-        this.item = data.data;
+        this.item = response.data;
 
         // residents
-        const list = await axios.get(
-          `https://rickandmortyapi.com/api/character/${getIdFromUrl(this.item.residents)}`
+        const residentIds = this.item.residents
+          .map((url) => getIdFromUrl(url))
+          .join(',');
+        const residentResponse = await axios.get(
+          `https://rickandmortyapi.com/api/character/${residentIds}`
         );
 
-        Array.isArray(list['data'])
-          ? (this.residents = list['data'])
-          : this.residents.push(list['data']);
+        this.residents = Array.isArray(residentResponse.data)
+          ? residentResponse.data
+          : [residentResponse.data];
       } catch (e) {
-        throw new Error(e);
+        console.error(e);
       }
     },
   },
