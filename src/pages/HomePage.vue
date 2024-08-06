@@ -9,12 +9,16 @@
         <div
           class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mm:grid-cols-2 gap-4 mm:mt-6 mmm:mt-4"
         >
-          <CharacterCard
-            v-for="item in list"
-            :key="item['name']"
-            :item="item"
-          />
+          <CharacterCard v-for="item in list" :key="item.id" :item="item" />
         </div>
+      </div>
+
+      <div>
+        <Pagination
+          :action="getCharactersByPage"
+          :next="nextPage"
+          :prev="prevPage"
+        />
       </div>
     </div>
   </main>
@@ -25,14 +29,19 @@
 <script>
 import axios from 'axios';
 
-import { Header, Footer, Menu, CharacterCard } from '@/components/index';
+import {
+  Header,
+  Footer,
+  Menu,
+  CharacterCard,
+  Pagination,
+} from '@/components/index';
 import { Title } from '@/shared/ui/index';
 
 export default {
   data() {
     return {
       list: [],
-      pages: null,
       nextPage: null,
       prevPage: null,
     };
@@ -42,6 +51,7 @@ export default {
     Footer,
     Menu,
     CharacterCard,
+    Pagination,
     Title,
   },
   created() {
@@ -52,9 +62,8 @@ export default {
       try {
         const { data } = await axios.get(url);
         this.list = data.results;
-        this.pages = data.pages;
-        this.nextPage = data.next;
-        this.prevPage = data.prev;
+        this.nextPage = data.info.next;
+        this.prevPage = data.info.prev;
       } catch (e) {
         throw new Error(e);
       }

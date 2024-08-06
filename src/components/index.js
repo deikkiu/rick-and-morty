@@ -8,6 +8,7 @@ import CharacterCard from './CharacterCard.vue';
 import InfoCard from './InfoCard.vue';
 import LocationCard from './LocationCard.vue';
 import EpisodeCard from './EpisodeCard.vue';
+import Pagination from './Pagination.vue';
 
 export {
   Header,
@@ -17,4 +18,5 @@ export {
   InfoCard,
   LocationCard,
   EpisodeCard,
+  Pagination,
 };
