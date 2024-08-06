@@ -1,12 +1,14 @@
 <template>
 	<Header />
 
-	<main class="mt-10">
+	<main class="mm:mt-10 mmm:mt-6">
 		<div class="container">
 			<div>
 				<Title text="Characters" />
 
-				<div class="grid grid-cols-5 gap-4 mt-6">
+				<div
+					class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mm:grid-cols-2 gap-4 mm:mt-6 mmm:mt-4"
+				>
 					<CharacterCard
 						v-for="item in list"
 						:key="item['name']"

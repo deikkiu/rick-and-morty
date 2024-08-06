@@ -1,7 +1,7 @@
 <template>
 	<Header />
 
-	<main class="mt-10">
+	<main class="mm:mt-10 mmm:mt-6">
 		<div class="container">
 			<div>
 				<img class="w-16 h-16" src="@/assets/icons/planet.svg" alt="Episode" />
@@ -26,7 +26,9 @@
 			<div class="mt-10">
 				<Title text="Residents" />
 
-				<div class="grid grid-cols-5 gap-4 mt-6">
+				<div
+					class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mm:grid-cols-2 gap-4 mm:mt-6 mmm:mt-4"
+				>
 					<CharacterCard
 						v-for="resident in residents"
 						:key="resident['name']"

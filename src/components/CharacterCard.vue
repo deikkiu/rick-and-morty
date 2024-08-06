@@ -1,8 +1,12 @@
 <template>
 	<router-link :to="'/character/' + item.id">
 		<div class="card hover:bg-cardHoverBg">
-			<img class="w-full h-48 rounded-lg" :src="item.image" :alt="item.name" />
-			<h3 class="mt-4 text-base font-bold text-white truncate">
+			<img
+				class="w-full mm:h-48 mmm:h-56 rounded-lg"
+				:src="item.image"
+				:alt="item.name"
+			/>
+			<h3 class="mt-4 text-base font-bold text-white">
 				{{ item.name }}
 			</h3>
 

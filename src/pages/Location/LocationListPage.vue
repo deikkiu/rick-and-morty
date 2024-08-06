@@ -1,12 +1,14 @@
 <template>
 	<Header />
 
-	<main class="mt-10">
+	<main class="mm:mt-10 mmm:mt-6">
 		<div class="container">
 			<div>
 				<Title text="Locations" />
 
-				<div class="grid grid-cols-5 gap-4 mt-6">
+				<div
+					class="grid mmm:grid-cols-1 mm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-6"
+				>
 					<LocationCard v-for="item in list" :key="item['name']" :item="item" />
 				</div>
 			</div>

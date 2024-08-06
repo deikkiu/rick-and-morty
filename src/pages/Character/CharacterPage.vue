@@ -1,24 +1,28 @@
 <template>
 	<Header />
 
-	<main class="mt-10">
+	<main class="mt-10 mmm:mt-6">
 		<div class="container">
-			<div class="flex flex-row gap-x-16">
+			<div
+				class="flex sm:flex-row mmm:flex-col lg:gap-x-16 md:gap-x-12 sm:gap-x-10 mmm:gap-y-6"
+			>
 				<img
-					class="w-96 h-auto rounded-2xl"
+					class="lg:w-96 md:w-72 sm:w-56 mmm:w-full h-auto rounded-2xl"
 					:src="item.image"
 					:alt="item.name"
 				/>
 
-				<div class="mt-2">
-					<h1 class="text-5xl font-bold text-white">{{ item.name }}</h1>
-					<h2 class="mt-4 text-xl text-white">
+				<div class="sm:mt-2">
+					<h1 class="md:text-5xl sm:text-4xl mmm:text-4xl font-bold text-white">
+						{{ item.name }}
+					</h1>
+					<h2 class="mt-4 md:text-xl sm:text-lg text-white">
 						Participated in {{ item.episode.length }} episodes
 					</h2>
 
 					<InfoCard :item="item" type="inner" />
 
-					<div class="mt-6">
+					<div class="md:mt-6 sm:mt-4 mmm:mt-4">
 						<router-link
 							v-if="item.origin.name !== 'unknown'"
 							:to="'/location/' + originId"
@@ -43,7 +47,9 @@
 			<div class="mt-10">
 				<Title text="Episodes" />
 
-				<div class="grid grid-cols-5 gap-4 mt-6">
+				<div
+					class="grid mmm:grid-cols-1 mm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-6"
+				>
 					<EpisodeCard
 						v-for="episode in episodes"
 						:key="episode['name']"

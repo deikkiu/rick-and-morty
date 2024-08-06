@@ -12,7 +12,7 @@
 				</div>
 
 				<div
-					class="mt-10 pt-5 border-t border-white flex flex-row justify-between items-center gap-x-6"
+					class="mm:mt-10 mmm:mt-6 pt-5 border-t border-white flex mm:flex-row mm:justify-between mm:items-center mmm:flex-col gap-y-1 gap-x-6"
 				>
 					<span class="font-sans text-sm text-white">© 2024</span>
 					<span class="font-sans text-sm text-white">

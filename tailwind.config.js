@@ -13,7 +13,9 @@ export default {
 			},
 		},
 		screens: {
-			sm: '480px',
+			mmm: '320px',
+			mm: '440px',
+			sm: '576px',
 			md: '768px',
 			lg: '976px',
 			xl: '1440px',
