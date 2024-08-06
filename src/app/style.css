@@ -3,49 +3,49 @@
 @tailwind utilities;
 
 @layer base {
-	@font-face {
-		font-family: 'Open Sans';
-		font-style: normal;
-		font-weight: 700;
-		font-display: swap;
-		src: url(/fonts/OpenSans-Bold.ttf) format('truetype');
-	}
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/fonts/OpenSans-Bold.ttf) format('truetype');
+  }
 
-	@font-face {
-		font-family: 'Open Sans';
-		font-style: normal;
-		font-weight: 600;
-		font-display: swap;
-		src: url(/fonts/OpenSans-Semibold.ttf) format('truetype');
-	}
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/fonts/OpenSans-Semibold.ttf) format('truetype');
+  }
 
-	@font-face {
-		font-family: 'Open Sans';
-		font-style: normal;
-		font-weight: 500;
-		font-display: swap;
-		src: url(/fonts/OpenSans-Medium.ttf) format('truetype');
-	}
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/fonts/OpenSans-Medium.ttf) format('truetype');
+  }
 
-	@font-face {
-		font-family: 'Open Sans';
-		font-style: normal;
-		font-weight: 400;
-		font-display: swap;
-		src: url(/fonts/OpenSans-Regular.ttf) format('truetype');
-	}
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/OpenSans-Regular.ttf) format('truetype');
+  }
 }
 
 @layer components {
-	.card {
-		height: 100%;
-		padding: 16px;
+  .card {
+    height: 100%;
+    padding: 16px;
 
-		background-color: theme('colors.cardBg');
-		border-radius: 16px;
+    background-color: theme('colors.cardBg');
+    border-radius: 16px;
 
-		cursor: pointer;
+    cursor: pointer;
 
-		transition: background-color 0.3s linear;
-	}
+    transition: background-color 0.3s linear;
+  }
 }

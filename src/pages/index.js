@@ -6,10 +6,10 @@ import EpisodePage from './Episode/EpisodePage.vue';
 import LocationPage from './Location/LocationPage.vue';
 
 export {
-	HomePage,
-	EpisodeListPage,
-	LocationListPage,
-	CharacterPage,
-	EpisodePage,
-	LocationPage,
+  HomePage,
+  EpisodeListPage,
+  LocationListPage,
+  CharacterPage,
+  EpisodePage,
+  LocationPage,
 };

@@ -10,11 +10,11 @@ import LocationCard from './LocationCard.vue';
 import EpisodeCard from './EpisodeCard.vue';
 
 export {
-	Header,
-	Footer,
-	Menu,
-	CharacterCard,
-	InfoCard,
-	LocationCard,
-	EpisodeCard,
+  Header,
+  Footer,
+  Menu,
+  CharacterCard,
+  InfoCard,
+  LocationCard,
+  EpisodeCard,
 };
