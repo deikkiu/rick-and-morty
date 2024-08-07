@@ -2,7 +2,17 @@
 
 Добро пожаловать в проект на основе Vite и Vue! В этом README описаны шаги для локального запуска проекта, а также запуск через Docker.
 
-https://github.com/user-attachments/assets/bdd64eba-dc74-4695-8d74-5c5a991869e7
+https://github.com/user-attachments/assets/83d8cc04-a23c-40b6-aced-6d99ecc5b685
+
+<br />
+
+https://github.com/user-attachments/assets/b13e8520-6281-437c-914b-e7726a791143
+
+<br />
+
+https://github.com/user-attachments/assets/8928fd56-5652-4b23-bcd8-4357e22bc3bb
+
+<br />
 
 ## Запуск локально
 
