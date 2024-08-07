@@ -1,3 +1,13 @@
 export const getIdFromUrl = (urls) => {
-  return urls.slice(urls.lastIndexOf('/') + 1);
+  if (urls.includes('/')) {
+    const id = urls.slice(urls.lastIndexOf('/') + 1);
+
+    if (!isNaN(Number(id))) {
+      return id;
+    }
+
+    return null;
+  }
+
+  return null;
 };

@@ -61,11 +61,12 @@ export default {
     async getCharactersByPage(url) {
       try {
         const { data } = await axios.get(url);
-        this.list = data.results;
+        this.list = data.results || [];
         this.nextPage = data.info.next;
         this.prevPage = data.info.prev;
       } catch (e) {
-        throw new Error(e);
+        console.error('Error fetching characters:', e);
+        this.characters = [];
       }
     },
   },
